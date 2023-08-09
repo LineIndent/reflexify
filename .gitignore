@@ -1,6 +1,6 @@
 *.py[cod]
 .web
 __pycache__/
+app/pages/
 reflex.db
 venv
-app/pages/

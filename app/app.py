@@ -1,17 +1,16 @@
 import importlib
 import os
 import reflex as rx
+from .config import app_configuration
+from .states.mainState import MainState
 
 
-class State(rx.State):
-    """The app state."""
+config: dict = app_configuration
 
-    pass
-
-
-app = rx.App(state=State)
+app = rx.App(state=MainState)
 
 routes: dict = {}
+
 for root, dirs, files in os.walk("./app/pages"):
     for file in files:
         if file.endswith(".py"):
@@ -19,7 +18,7 @@ for root, dirs, files in os.walk("./app/pages"):
             module_spec = importlib.util.spec_from_file_location(file, filepath)
             module = importlib.util.module_from_spec(module_spec)
             module_spec.loader.exec_module(module)
-            __module__ = module.RxPage()
+            __module__ = module.RxPage(config)
             routes[__module__.__route__()] = __module__
 
 
