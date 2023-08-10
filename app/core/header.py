@@ -1,16 +1,21 @@
 import reflex as rx
-
-# from app.states.headerState import HeaderState
+from app.core.repository import RepositoryData
 
 
 class RxHeader:
     def __init__(self, config: dict):
         self.config = config
-        self.theme_toggle = rx.color_mode_button(rx.color_mode_icon())
+        self.get_repository = self.get_repository_data()
+        self.theme_toggle = rx.tooltip(
+            rx.color_mode_button(
+                rx.color_mode_icon(), color_scheme="None", color="white"
+            ),
+            label="Switch theme mode",
+        )
         self.rx_header = rx.hstack(
             style=rx_header_style_sheet(
                 self.config.get("theme", "").get("primary", ""),
-            )
+            ),
         )
 
         self.site_name = rx.heading(
@@ -23,6 +28,7 @@ class RxHeader:
                 self.site_name,
                 rx.spacer(),
                 self.theme_toggle,
+                self.get_repository,
             ),
             width="100%",
             style=header_desktop_style,
@@ -49,6 +55,10 @@ class RxHeader:
             self.rx_header_mobile,
         ]
 
+    def get_repository_data(self):
+        data = RepositoryData(self.config)
+        return data.build()
+
     def build(self):
         self.rx_header.children = self.rx_header_components
         return self.rx_header
@@ -58,10 +68,11 @@ def rx_header_style_sheet(bgcolor: str):
     return {
         "width": "100%",
         "height": ["45px", "45px", "45px", "45px", "60px"],
-        "position": "fixed",
+        "position": "sticky",
         "bg": bgcolor,
         "box_shadow": "0 3px 6px 0 rgba(90, 116, 148, 0.2)",
         "transition": "height 350ms ease",
+        "top": "0",
     }
 
 
@@ -76,6 +87,7 @@ header_desktop_style = {
     "padding_right": ["", "", "", "4rem", "10rem"],
     "transition": "all 550ms ease",
 }
+
 header_mobile_style = {
     "padding_left": ["1rem", "1rem", "1rem", "", ""],
     "padding_right": ["1rem", "1rem", "1rem", "", ""],
