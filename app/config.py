@@ -15,4 +15,11 @@ app_configuration: dict = {
         "mastodon": "",
         "discord": "https://discord.gg/T5WSbC2YtQ",
     },
+    "navigation": {
+        "home": "index.py",
+        "about": {
+            "about_me": "index.py",
+            "about_general": "about.py",
+        },
+    },
 }

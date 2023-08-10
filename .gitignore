@@ -4,3 +4,5 @@ __pycache__/
 app/pages/
 reflex.db
 venv
+reflexify.log
+pages
