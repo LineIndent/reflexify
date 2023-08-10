@@ -90,7 +90,11 @@ def synchronize_directories(docs: dict):
 
     for file_path in pages_files:
         try:
-            if file_path not in dict_files:
+            if (
+                file_path not in dict_files
+                and file_path != "./app/pages/page404.py"
+                and file_path != "./app/pages/routes.py"
+            ):
                 os.remove(file_path)
                 logging.info(f"File removed: {file_path}")
         except:  # noqa: E722
@@ -106,6 +110,24 @@ def synchronize_directories(docs: dict):
                 logging.info(f"File created: {file}")
 
 
+def set_router_and_error_file():
+    with open("./app/utilities/rx_page404.py", "r") as file:
+        error = file.read()
+
+    error_path = os.path.join("./app/pages/" + "page404.py")
+    if not os.path.exists(error_path):
+        with open(error_path, "w") as file:
+            file.write(error)
+
+    with open("./app/utilities/rx_routes.py", "r") as file:
+        router = file.read()
+
+    routes_path = os.path.join("./app/pages/" + "routes.py")
+    if not os.path.exists(routes_path):
+        with open(routes_path, "w") as file:
+            file.write(router)
+
+
 def get_dict_file():
     filepath = os.path.join("./app/", "config.py")
     module_spec = importlib.util.spec_from_file_location("config.py", filepath)
@@ -118,6 +140,7 @@ def get_dict_file():
 def build():
     app_configuration = get_dict_file()
     check_if_pages_directory_exists()
+    set_router_and_error_file()
     synchronize_directories(app_configuration)
 
 
