@@ -1,5 +1,6 @@
 import reflex as rx
 from app.core.repository import RepositoryData
+from app.states.drawerState import DrawerState
 
 
 class RxHeader:
@@ -37,8 +38,15 @@ class RxHeader:
         self.rx_header_mobile = rx.mobile_and_tablet(
             rx.hstack(
                 rx.hstack(
-                    rx.icon(
-                        tag="hamburger", font_size="xl", cursor="pointer", color="white"
+                    rx.button(
+                        rx.icon(
+                            tag="hamburger",
+                            font_size="xl",
+                            cursor="pointer",
+                            color="white",
+                        ),
+                        on_click=DrawerState.left,
+                        color_scheme="None",
                     ),
                     self.site_name,
                     spacing="1.5rem",
@@ -70,7 +78,7 @@ def rx_header_style_sheet(bgcolor: str):
         "height": ["45px", "45px", "45px", "45px", "60px"],
         "position": "sticky",
         "bg": bgcolor,
-        "box_shadow": "0 3px 6px 0 rgba(90, 116, 148, 0.2)",
+        "box_shadow": "0 3px 6px 0 rgba(0, 0, 0, 0.5)",
         "transition": "height 350ms ease",
         "top": "0",
     }

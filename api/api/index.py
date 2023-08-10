@@ -1,9 +1,8 @@
 from flask import Flask, jsonify
 
-
 app = Flask(__name__)
 
-data: dict = {
+data = {
     "site_name": {
         "type": "string",
         "*": "not required",
@@ -26,10 +25,8 @@ data: dict = {
     },
     "theme": {
         "primary": {
-            {
-                "type": "string",
-                "*": "required",
-            },
+            "type": "string",
+            "*": "required",
         },
         "secondary": {
             "type": "string",
@@ -47,10 +44,13 @@ data: dict = {
         "type": "string",
         "*": "not required",
     },
-    "navigation": ["Single file or single-level sub-directory", "Not required"],
+    "navigation": [
+        "Single file or single-level sub-directory",
+        "Not required",
+    ],
 }
 
 
-@app.route("/reflexify")
+@app.route("/")
 def home():
     return jsonify(data)

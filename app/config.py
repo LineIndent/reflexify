@@ -6,7 +6,7 @@ app_configuration: dict = {
     "attribute": "Made with Refelex",
     "theme": {
         "primary": "teal",
-        "secondary": "teal",
+        "secondary": "green",
     },
     "socials": {
         "github": "https://github.com/reflex-dev/reflex",

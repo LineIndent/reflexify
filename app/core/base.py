@@ -3,11 +3,13 @@ from app.core.left import RxLeft
 from app.core.right import RxRight
 from app.core.middle import RxMiddle
 from app.core.footer import RxFooter
+from app.core.drawer import RxDrawer
 
 from app.styles.middle_style import rx_middle_css
 from app.styles.left_style import rx_left_css
 from app.styles.right_style import rx_right_css
 from app.styles.base_style import rx_base_css
+
 
 import reflex as rx
 
@@ -32,8 +34,10 @@ class RxBasePage:
         self.rx_right = RxRight(self.right_navigation, rx_right_css)
         self.rx_middle = RxMiddle(self.components, rx_middle_css)
         self.rx_footer = RxFooter(self.config).build()
+        self.rx_drawer = RxDrawer(self.config).build()
 
         self.rx_base_components = [
+            self.rx_drawer,
             self.set_desktop_layout(),
             self.set_mobile_tablet_layout(),
         ]
