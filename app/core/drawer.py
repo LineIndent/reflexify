@@ -1,18 +1,27 @@
 import reflex as rx
 from app.states.drawerState import DrawerState
 from app.core.repository import RepositoryData
+from app.states.headerState import HeaderState
 
 
 class RxDrawer:
     def __init__(self, config: dict):
         self.config = config
         self.get_repository = self.get_repository_data()
+        self.nav_panel = rx.vstack(
+            rx.foreach(
+                HeaderState.withNav,
+                router,
+            ),
+            spacing="1.25rem",
+            align_items="start",
+        )
 
         self.rx_drawer = rx.drawer(
             rx.drawer_overlay(
                 rx.drawer_content(
                     rx.hstack(
-                        rx.heading("Reflexify", size="lg"),
+                        rx.heading(self.config.get("site_name", ""), size="lg"),
                         width="100%",
                         height="100px",
                         align_items="end",
@@ -29,8 +38,12 @@ class RxDrawer:
                         padding_left="1rem",
                         transition="all 550ms ease",
                     ),
-                    rx.drawer_body("Do you want to confirm example?"),
-                    rx.drawer_footer(rx.button("Close", on_click=DrawerState.left)),
+                    rx.drawer_body(
+                        self.nav_panel,
+                    ),
+                    rx.drawer_footer(
+                        rx.button("Close", on_click=DrawerState.left),
+                    ),
                 ),
             ),
             is_open=DrawerState.show_left,
@@ -43,3 +56,27 @@ class RxDrawer:
 
     def build(self):
         return self.rx_drawer
+
+
+def router(data: list[str]):
+    return rx.hstack(
+        rx.link(
+            rx.text(
+                data[0],
+                size=12,
+                font_weight="400",
+                color="white",
+            ),
+            href=data[1],
+            _hover={"text_decoration": "None", "color": "#ffffff"},
+            padding="0.25rem 0rem",
+        ),
+        rx.spacer(),
+        rx.icon(tag="arrow_forward"),
+        align_items="center",
+        width="100%",
+        cursor="pointer",
+        opacity="0.8",
+        _hover={"opacity": "1"},
+        on_click=[DrawerState.left, rx.redirect(data[1])],
+    )

@@ -17,9 +17,15 @@ app_configuration: dict = {
     },
     "navigation": {
         "home": "index.py",
+        "reference": {
+            "index": "one.py",
+        },
         "about": {
-            "about_me": "index.py",
-            "about_general": "about.py",
+            "index": "two.py",
+            "about": "three.py",
+        },
+        "contact": {
+            "index": "four.py",
         },
     },
 }

@@ -94,6 +94,7 @@ def synchronize_directories(docs: dict):
                 file_path not in dict_files
                 and file_path != "./app/pages/page404.py"
                 and file_path != "./app/pages/routes.py"
+                and file_path != "./app/pages/index.py"
             ):
                 os.remove(file_path)
                 logging.info(f"File removed: {file_path}")
@@ -126,6 +127,14 @@ def set_router_and_error_file():
     if not os.path.exists(routes_path):
         with open(routes_path, "w") as file:
             file.write(router)
+
+    with open("./app/utilities/rx_template.py", "r") as file:
+        rx_page = file.read()
+
+    index_path = os.path.join("./app/pages/" + "index.py")
+    if not os.path.exists(index_path):
+        with open(index_path, "w") as file:
+            file.write(rx_page)
 
 
 def get_dict_file():

@@ -1,6 +1,7 @@
 import reflex as rx
 from app.core.repository import RepositoryData
 from app.states.drawerState import DrawerState
+from app.states.headerState import HeaderState
 
 
 class RxHeader:
@@ -17,6 +18,8 @@ class RxHeader:
             style=rx_header_style_sheet(
                 self.config.get("theme", "").get("primary", ""),
             ),
+            on_mouse_enter=HeaderState.header_expand,
+            on_mouse_leave=HeaderState.header_retract,
         )
 
         self.site_name = rx.heading(
@@ -31,6 +34,7 @@ class RxHeader:
                 self.theme_toggle,
                 self.get_repository,
             ),
+            self.get_navigation_rail(),
             width="100%",
             style=header_desktop_style,
         )
@@ -63,6 +67,22 @@ class RxHeader:
             self.rx_header_mobile,
         ]
 
+    def get_navigation_rail(self):
+        rail = rx.hstack(
+            rx.foreach(
+                HeaderState.nav,
+                router,
+            ),
+            width="100%",
+            height=HeaderState.nav_height,
+            spacing="1.5rem",
+            align_items="end",
+            opacity=HeaderState.onOpacity,
+            transition="opacity 500ms ease 500ms",
+        )
+
+        return rail
+
     def get_repository_data(self):
         data = RepositoryData(self.config)
         return data.build()
@@ -72,10 +92,19 @@ class RxHeader:
         return self.rx_header
 
 
+def router(data: list[str]):
+    return rx.link(
+        rx.text(data[0], size=10, font_weight="400", color="white"),
+        href=data[1],
+        _hover={"text_decoration": "None", "color": "#ffffff"},
+        transition="opacity 500ms ease 200ms",
+    )
+
+
 def rx_header_style_sheet(bgcolor: str):
     return {
         "width": "100%",
-        "height": ["45px", "45px", "45px", "45px", "60px"],
+        "height": HeaderState.isHovered,
         "position": "sticky",
         "bg": bgcolor,
         "box_shadow": "0 3px 6px 0 rgba(0, 0, 0, 0.5)",
