@@ -5,32 +5,32 @@ app = Flask(__name__)
 data = {
     "site_name": {
         "type": "string",
-        "*": "not required",
+        "required": False,
     },
     "repo_name": {
         "type": "string",
-        "*": "not required",
+        "required": False,
     },
     "repo_url": {
         "type": "string (URL format)",
-        "*": "not required",
+        "required": False,
     },
     "copy_right": {
         "type": "string",
-        "*": "not required",
+        "required": False,
     },
     "attribute": {
         "type": "string",
-        "*": "not required",
+        "required": False,
     },
     "theme": {
         "primary": {
             "type": "string",
-            "*": "required",
+            "required": True,
         },
         "secondary": {
             "type": "string",
-            "*": "required",
+            "required": True,
         },
     },
     "socials": {
@@ -41,13 +41,14 @@ data = {
             "mastodon",
             "discord",
         ],
+        "value": "url of corresponding social media account.",
         "type": "string",
-        "*": "not required",
+        "required": False,
     },
-    "navigation": [
-        "Single file or single-level sub-directory",
-        "Not required",
-    ],
+    "navigation": {
+        "description": "Single file or single-level sub-directory. Must have home:index.py key:value pair. Cannot have values with same name.",
+        "required": True,
+    },
 }
 
 

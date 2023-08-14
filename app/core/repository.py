@@ -1,6 +1,7 @@
 import reflex as rx
 from bs4 import BeautifulSoup
 import httpx
+from app.helpers.app_config import Config
 
 
 icon_list = [
@@ -11,21 +12,18 @@ icon_list = [
 
 
 class RepositoryData:
-    def __init__(self, config: dict):
-        self.config = config
+    def __init__(self):
         self.rx_repo_data = rx.hstack(
             spacing="1.15rem",
             cursor="pointer",
-            on_click=rx.redirect(self.config.get("repo_url", "")),
+            on_click=rx.redirect(Config.__repo_url__()),
         )
 
         self.git_repo_name = rx.hstack(
-            rx.text(
-                self.config.get("repo_name", ""), color="white", font_weight="semibold"
-            ),
+            rx.text(Config.__repo_name__(), color="white", font_weight="semibold"),
         )
 
-        if "repo_url" in self.config:
+        if Config.__repo_url__():
             self.git_icon = rx.html(
                 "<img width='24' height='24' src='https://img.icons8.com/ios-filled/50/000000/git.png' style='filter: brightness(0) invert(1);'/>"
             )
@@ -53,7 +51,7 @@ class RepositoryData:
         ]
 
         with httpx.Client() as client:
-            response = client.get(self.config.get("repo_url"))
+            response = client.get(Config.__repo_url__())
             data = response.content
 
         soup = BeautifulSoup(data, "html.parser")

@@ -3,7 +3,7 @@ app_configuration: dict = {
     "repo_name": "LineIndent/flexible",
     "repo_url": "https://github.com/LineIndent/fletxible",
     "copy_right": "Copyright © 2022 - 2023 S. Ahmad P. Hakimi ",
-    "attribute": "Made with Refelex",
+    "attribute": "Made with Refelex & Reflexify",
     "theme": {
         "primary": "teal",
         "secondary": "green",
@@ -16,16 +16,19 @@ app_configuration: dict = {
         "discord": "https://discord.gg/T5WSbC2YtQ",
     },
     "navigation": {
-        "home": "index.py",
+        "home": {
+            "start": "start.py",
+        },
         "reference": {
-            "index": "one.py",
+            "setup": "setup.py",
+            "installation": "installation.py",
         },
-        "about": {
-            "index": "two.py",
-            "about": "three.py",
-        },
-        "contact": {
-            "index": "four.py",
-        },
+        # "about": {
+        #     "index": "two.py",
+        #     "about": "three.py",
+        # },
+        # "contact": {
+        #     "index": "four.py",
+        # },
     },
 }

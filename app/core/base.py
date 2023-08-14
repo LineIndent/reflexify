@@ -1,4 +1,5 @@
 from app.core.header import RxHeader
+
 from app.core.left import RxLeft
 from app.core.right import RxRight
 from app.core.middle import RxMiddle
@@ -6,9 +7,11 @@ from app.core.footer import RxFooter
 from app.core.drawer import RxDrawer
 
 from app.styles.middle_style import rx_middle_css
+
 from app.styles.left_style import rx_left_css
 from app.styles.right_style import rx_right_css
 from app.styles.base_style import rx_base_css
+from app.styles.footer_style import rx_footer_css, rx_footer_socials_css
 
 
 import reflex as rx
@@ -17,24 +20,24 @@ import reflex as rx
 class RxBasePage:
     def __init__(
         self,
-        config: dict,
         components: list,
-        left_navigation: list,
+        left_navigation: rx.Component,
         right_navigation: list,
     ):
-        self.config = config
         self.components = components
         self.left_navigation = left_navigation
         self.right_navigation = right_navigation
 
         self.rx_main_stack = rx.vstack(style=rx_base_css)
 
-        self.rx_header = RxHeader(self.config).build()
-        self.rx_left = RxLeft(self.left_navigation, rx_left_css)
+        self.rx_header = RxHeader().build()
+
+        nav = self.left_navigation
+        self.rx_left = RxLeft(nav, rx_left_css) if nav else rx.vstack()
         self.rx_right = RxRight(self.right_navigation, rx_right_css)
         self.rx_middle = RxMiddle(self.components, rx_middle_css)
-        self.rx_footer = RxFooter(self.config).build()
-        self.rx_drawer = RxDrawer(self.config).build()
+        self.rx_footer = RxFooter(rx_footer_css, rx_footer_socials_css).build()
+        self.rx_drawer = RxDrawer().build()
 
         self.rx_base_components = [
             self.rx_drawer,

@@ -3,14 +3,11 @@ import reflex as rx
 
 
 class RxPage:
-    def __init__(self, config: dict):
-        self.config = config
+    def __title__(self):
+        return "Error404"
 
     def __route__(self):
-        return "/index"
-
-    def __left__navigation__(self):
-        return []
+        return "/page_error_404"
 
     def __right__navigation__(self):
         return []
@@ -23,9 +20,8 @@ class RxPage:
 
     def build(self):
         page = RxBasePage(
-            self.config,
+            self.__title__(),
             self.__components__(),
-            self.__left__navigation__(),
             self.__right__navigation__(),
         )
         return page.build()

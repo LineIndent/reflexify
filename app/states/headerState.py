@@ -39,7 +39,7 @@ def get_modified_navigation_list(
 
 
 class HeaderState(MainState):
-    default: list[str] = ["45px", "45px", "45px", "65px", "65px"]
+    default: list[str] = ["45px", "45px", "45px", "45px", "48px"]
     expanded: list[str] = ["45px", "45px", "45px", "100px", "100px"]
     isHovered: list[str] = default
 

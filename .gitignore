@@ -2,7 +2,7 @@
 .web
 __pycache__/
 app/pages/
-reflex.db
-venv
-reflexify.log
 pages
+reflex.db
+reflexify.log
+venv
