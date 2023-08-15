@@ -23,7 +23,9 @@ def get_list_of_pages_from_directory():
         for item in os.listdir(path):
             item_path = os.path.join(path, item)
             if item == "__pycache__":
-                continue
+                _path = path + "/" + item
+                shutil.rmtree(_path)
+                logging.info(f"Directory __pycache__ removed: {_path}")
             if os.path.isfile(item_path) and item_path.endswith(".py"):
                 pages_list.add(item_path)
             elif os.path.isdir(item_path):
@@ -63,7 +65,6 @@ def get_list_of_pages_from_config_file(docs: dict, parent_path: str = "./app/pag
             else:
                 new_path = os.path.join(current_path, value)
                 file_path = new_path
-                # file_path = new_path + ".py"
                 pages_list.append(file_path)
 
     loop_over_nested_dict(docs, parent_path)
@@ -100,16 +101,6 @@ def synchronize_directories(docs: dict):
         except:  # noqa: E722
             pass
 
-    # with open("./app/utilities/rx_template.py", "r") as file:
-    #     rx_page = file.read()
-
-    # for file in dict_files:
-    #     print(dict_files)
-    #     if not os.path.exists(file):
-    #         with open(file, "w") as file:
-    #             file.write(rx_page)
-    #             logging.info(f"File created: {file}")
-
     for key, value in docs.get("navigation").items():
         if isinstance(value, dict):
             for __, path in value.items():
@@ -131,14 +122,14 @@ def synchronize_directories(docs: dict):
                         logging.info(f"File created: {file_path}")
 
 
-def set_router_and_error_file():
-    # with open("./app/utilities/rx_page404.py", "r") as file:
-    #     error = file.read()
+def set_template_and_error_file():
+    with open("./app/utilities/rx_page404.py", "r") as file:
+        error = file.read()
 
-    # error_path = os.path.join("./app/pages/" + "page404.py")
-    # if not os.path.exists(error_path):
-    #     with open(error_path, "w") as file:
-    #         file.write(error)
+    error_path = os.path.join("./app/pages/" + "page404.py")
+    if not os.path.exists(error_path):
+        with open(error_path, "w") as file:
+            file.write(error)
 
     with open("./app/utilities/rx_template.py", "r") as file:
         rx_page = file.read()
@@ -161,7 +152,7 @@ def get_dict_file():
 def build():
     app_configuration = get_dict_file()
     check_if_pages_directory_exists()
-    set_router_and_error_file()
+    set_template_and_error_file()
     synchronize_directories(app_configuration)
 
 
