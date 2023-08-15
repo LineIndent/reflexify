@@ -39,26 +39,5 @@ def get_modified_navigation_list(
 
 
 class HeaderState(MainState):
-    default: list[str] = ["45px", "45px", "45px", "45px", "48px"]
-    expanded: list[str] = ["45px", "45px", "45px", "100px", "100px"]
-    isHovered: list[str] = default
-
-    nav_height: str = "0px"
-    onOpacity: str = "0"
-
     withNav: list[list[str]] = get_modified_navigation_list()
     nav: list[list[str]] = []
-
-    def header_expand(self):
-        if self.isHovered == self.default:
-            self.isHovered = self.expanded
-            self.nav_height = "35px"
-            self.nav = self.withNav
-            self.onOpacity = "1"
-
-    def header_retract(self):
-        if self.isHovered == self.expanded:
-            self.onOpacity = "0"
-            self.nav = []
-            self.nav_height = "0px"
-            self.isHovered = self.default

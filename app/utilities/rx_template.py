@@ -5,11 +5,11 @@ from app.helpers.nav_helpers import NavHelper
 class RxPage:
     # Title of page: must match high-level key in config.py
     def __title__(self):
-        return ""
+        return "<title>"
 
     # Page route path: must follow /parent-key/file-name *without .py extension*
     def __route__(self):
-        return ""
+        return "<route>"
 
     # Left navigation panel: automated based on config navigation order
     def __left_navigation__(self):

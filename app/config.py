@@ -23,12 +23,12 @@ app_configuration: dict = {
             "setup": "setup.py",
             "installation": "installation.py",
         },
-        # "about": {
-        #     "index": "two.py",
-        #     "about": "three.py",
-        # },
-        # "contact": {
-        #     "index": "four.py",
-        # },
+        "about": {
+            "index": "two.py",
+            "about": "three.py",
+        },
+        "contact": {
+            "index": "four.py",
+        },
     },
 }

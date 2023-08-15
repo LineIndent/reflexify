@@ -16,20 +16,29 @@ class RxHeader:
         )
         self.rx_header = rx.hstack(
             style=header_css["main"],
-            on_mouse_enter=HeaderState.header_expand,
-            on_mouse_leave=HeaderState.header_retract,
         )
 
-        self.site_name = rx.heading(
-            Config.__site_name__(),
-            style=header_css["site_name"],
+        self.site_name = rx.tooltip(
+            rx.link(
+                rx.heading(
+                    Config.__site_name__(),
+                    style=header_css["site_name"],
+                ),
+                href="/",
+                _hover={
+                    "text_decoration": "None",
+                },
+            ),
+            label="Reflexify Template",
         )
-
         self.rx_header_desktop = rx.desktop_only(
             rx.hstack(
-                self.site_name, rx.spacer(), self.theme_toggle, self.get_repository
+                self.site_name,
+                self.get_navigation_rail(),
+                rx.spacer(),
+                self.theme_toggle,
+                self.get_repository,
             ),
-            self.get_navigation_rail(),
             style=header_css["max_header"],
         )
 
@@ -57,7 +66,9 @@ class RxHeader:
 
     def get_navigation_rail(self):
         rail = rx.hstack(
-            rx.foreach(HeaderState.nav, router), style=header_css["navigation"]
+            rx.foreach(HeaderState.withNav, router),
+            style=header_css["navigation"],
+            spacing="2rem",
         )
 
         return rail
@@ -68,18 +79,28 @@ class RxHeader:
 
 
 def router(data: list[str]):
-    return NavHelper.__get_nav_link__(
-        title=data[0],
-        route_to=data[1],
-        size=15,
-        color="white",
+    return rx.link(
+        rx.heading(
+            data[0],
+            size="s",
+            padding_top="0.3rem",
+            color="white",
+            font_weight="semibold",
+        ),
+        href=data[1],
+        opacity="0.85",
+        transition="opacity 600ms ease",
+        _hover={
+            "text_decoration": "None",
+            "opacity": "1",
+        },
     )
 
 
 header_css: dict = {
     "main": {
         "width": "100%",
-        "height": HeaderState.isHovered,
+        "height": "50px",
         "position": "sticky",
         "bg": Config.__theme_primary__(),
         "box_shadow": "0 3px 6px 0 rgba(0, 0, 0, 0.5)",
@@ -93,17 +114,22 @@ header_css: dict = {
         "color": "white",
     },
     "navigation": {
-        "width": "100%",
-        "height": HeaderState.nav_height,
-        "spacing": "2rem",
         "align_items": "end",
-        "opacity": HeaderState.onOpacity,
         "transition": "opacity 500ms ease 500ms",
+    },
+    "link_text": {
+        "size": "s",
+        "padding_top": "0.3rem",
+        "color": "white",
+        "font_weight": "semibold",
     },
     "site_name": {
         "font_size": ["100%", "115%", "130%", "135%", "150%"],
         "color": "white",
         "transition": "all 550ms ease",
+        "opacity": "1",
+        "_hover": {"opacity": "0.85"},
+        "padding_right": "3.5rem",
     },
     "max_header": {
         "width": "100%",

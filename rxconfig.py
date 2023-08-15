@@ -6,7 +6,7 @@ class ReflexifyConfig(rx.Config):
 
 
 config = ReflexifyConfig(
-    app_name="app",
+    app_name="./app/app",
     db_url="sqlite:///reflex.db",
     env=rx.Env.DEV,
 )

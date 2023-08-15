@@ -93,7 +93,6 @@ def synchronize_directories(docs: dict):
             if (
                 file_path not in dict_files
                 and file_path != "./app/pages/page404.py"
-                and file_path != "./app/pages/routes.py"
                 and file_path != "./app/pages/index.py"
             ):
                 os.remove(file_path)
@@ -101,32 +100,45 @@ def synchronize_directories(docs: dict):
         except:  # noqa: E722
             pass
 
-    with open("./app/utilities/rx_template.py", "r") as file:
-        rx_page = file.read()
+    # with open("./app/utilities/rx_template.py", "r") as file:
+    #     rx_page = file.read()
 
-    for file in dict_files:
-        if not os.path.exists(file):
-            with open(file, "w") as file:
-                file.write(rx_page)
-                logging.info(f"File created: {file}")
+    # for file in dict_files:
+    #     print(dict_files)
+    #     if not os.path.exists(file):
+    #         with open(file, "w") as file:
+    #             file.write(rx_page)
+    #             logging.info(f"File created: {file}")
+
+    for key, value in docs.get("navigation").items():
+        if isinstance(value, dict):
+            for __, path in value.items():
+                file_path = f"./app/pages/{key}/{path}"
+                if not os.path.exists(file_path):
+                    with open("./app/utilities/rx_template.py", "r") as file:
+                        template_page = file.read()
+
+                        new_template_page = template_page.replace(
+                            "<title>", key.capitalize()
+                        )
+
+                        new_template_page = new_template_page.replace(
+                            "<route>", f"/{key}/{path.split('.py')[0]}"
+                        )
+
+                    with open(file_path, "w") as file:
+                        file.write(new_template_page)
+                        logging.info(f"File created: {file_path}")
 
 
 def set_router_and_error_file():
-    with open("./app/utilities/rx_page404.py", "r") as file:
-        error = file.read()
+    # with open("./app/utilities/rx_page404.py", "r") as file:
+    #     error = file.read()
 
-    error_path = os.path.join("./app/pages/" + "page404.py")
-    if not os.path.exists(error_path):
-        with open(error_path, "w") as file:
-            file.write(error)
-
-    with open("./app/utilities/rx_routes.py", "r") as file:
-        router = file.read()
-
-    routes_path = os.path.join("./app/pages/" + "routes.py")
-    if not os.path.exists(routes_path):
-        with open(routes_path, "w") as file:
-            file.write(router)
+    # error_path = os.path.join("./app/pages/" + "page404.py")
+    # if not os.path.exists(error_path):
+    #     with open(error_path, "w") as file:
+    #         file.write(error)
 
     with open("./app/utilities/rx_template.py", "r") as file:
         rx_page = file.read()

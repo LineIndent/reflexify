@@ -38,7 +38,6 @@ class NavHelper:
                             f"/{ref.lower()}/{path.split('.py')[0]}",
                         ]
                     )
-
         return paths
 
     @staticmethod
