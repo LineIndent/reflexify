@@ -40,6 +40,11 @@ class Config:
         return value if value else "orange"
 
     @staticmethod
+    def __theme_font__() -> str:
+        value = Config.data["theme"].get("font", "Times New Roman")
+        return value if value else "Times New Roman"
+
+    @staticmethod
     def __all_social__():
         value = Config.data.get("socials", {})
         return value if value else None

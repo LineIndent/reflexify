@@ -2,11 +2,12 @@ import importlib
 import os
 import reflex as rx
 from .states.mainState import MainState
+from .helpers.app_config import Config
 
-
+app_css = {"font_family": Config.__theme_font__()}
 routes: dict = {}
 
-app = rx.App(state=MainState)
+app = rx.App(state=MainState, style=app_css)
 
 
 def create_module_from_file_path(file: str, filepath: str):

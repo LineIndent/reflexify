@@ -50,7 +50,7 @@ class NavHelper:
                     NavHelper.__get_nav_link__(
                         title=title.capitalize(),
                         route_to=route,
-                        size=15,
+                        size=13,
                         color=None,
                     )
                 )
@@ -72,7 +72,7 @@ nav_helper_css: dict = {
         "font_weight": "500",
         "color": "%s",
         "opacity": "0.85",
-        "transition": "opacity 550ms ease",
-        "_hover": {"opacity": "2"},
+        "transition": "opacity 350ms ease",
+        "_hover": {"opacity": "1"},
     },
 }

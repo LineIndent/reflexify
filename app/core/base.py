@@ -1,5 +1,4 @@
 from app.core.header import RxHeader
-
 from app.core.left import RxLeft
 from app.core.right import RxRight
 from app.core.middle import RxMiddle
@@ -7,7 +6,6 @@ from app.core.footer import RxFooter
 from app.core.drawer import RxDrawer
 
 from app.styles.middle_style import rx_middle_css
-
 from app.styles.left_style import rx_left_css
 from app.styles.right_style import rx_right_css
 from app.styles.base_style import rx_base_css
@@ -44,8 +42,6 @@ class RxBasePage:
             self.set_desktop_layout(),
             self.set_mobile_tablet_layout(),
         ]
-
-        self.children = self.rx_base_components
 
     def set_desktop_layout(self):
         return rx.desktop_only(

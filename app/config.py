@@ -5,8 +5,9 @@ app_configuration: dict = {
     "copy_right": "Copyright © 2022 - 2023 S. Ahmad P. Hakimi ",
     "attribute": "Made with Refelex & Reflexify",
     "theme": {
-        "primary": "teal",
-        "secondary": "green",
+        "primary": "black",
+        "secondary": "teal",
+        "font": "Helvetica",
     },
     "socials": {
         "github": "https://github.com/reflex-dev/reflex",
@@ -17,18 +18,15 @@ app_configuration: dict = {
     },
     "navigation": {
         "home": {
-            "start": "start.py",
+            "Getting started": "start.py",
         },
-        "reference": {
-            "setup": "setup.py",
-            "installation": "installation.py",
-        },
-        "about": {
-            "index": "two.py",
-            "about": "three.py",
-        },
-        "contact": {
-            "index": "four.py",
+        "setup": {
+            "set up": "setup.py",
+            "changing the colors": "color.py",
+            "changing the fonts": "fonts.py",
+            "site navigation": "navigation.py",
+            "Adding git repository": "git.py",
+            "Adding social media": "media.py",
         },
     },
 }
