@@ -23,10 +23,10 @@ app_configuration: dict = {
         "setup": {
             "set up": "setup.py",
             "changing the colors": "color.py",
-            "changing the fonts": "fonts.py",
-            "site navigation": "navigation.py",
-            "Adding git repository": "git.py",
-            "Adding social media": "media.py",
+            # "changing the fonts": "fonts.py",
+            # "site navigation": "navigation.py",
+            # "Adding git repository": "git.py",
+            # "Adding social media": "media.py",
         },
     },
 }

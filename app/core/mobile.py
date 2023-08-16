@@ -1,31 +1,28 @@
 import reflex as rx
 
 
-class FxMobileNavigation:
-    def __init__(self, components: list, style: dict):
-        self.style = style
+class RxMobileNav(rx.Accordion):
+    def __init__(
+        self, components: any, allow_multiple=True, width="100%", padding="1rem 2rem"
+    ):
+        super().__init__(allow_multiple=allow_multiple, width=width, padding=padding)
+
         self.components = components
 
-        self.main_stack = rx.vstack(style=self.style["main"])
-
-        self.title = rx.hstack(
-            rx.text(
-                "Title",
-                font_size="16px",
-                weight="semibold",
-                height="50px",
-                padding_top="1rem",
-            ),
-            rx.spacer(),
-            rx.text("O"),
-            width="100%",
-            align_items="center",
-            bg="pink",
-            padding="0rem 2rem",
+        self.accordian_item = rx.accordion_item(
+            rx.accordion_button(
+                rx.heading("Navigation", size="xs"),
+                rx.spacer(),
+                rx.accordion_icon(),
+                padding="1rem 0.5rem",
+            )
         )
 
-        self.main_stack.children = self.components
-        self.main_stack.children.insert(0, self.title)
+        for title, route in self.components:
+            self.accordian_item.children.append(
+                rx.accordion_panel(
+                    rx.link(rx.text(title), href=route),
+                ),
+            )
 
-    def build(self):
-        return self.main_stack
+        self.children.append(self.accordian_item)

@@ -4,7 +4,7 @@ from app.helpers.app_config import Config
 SOCIAL_SIZE = 19
 
 # set inverse filteration color scheme for social media icons
-SOCIAL_COLOR = "filter: brightness(0) invert(1)"
+SOCIAL_COLOR = r"filter: brightness(0) invert(1)"
 
 # main base css stylesheet for preconfigured web application
 base_css: dict = {
@@ -33,8 +33,8 @@ base_css: dict = {
         "position": "block",
         "padding_top": "5rem",
         "align_items": "start",
-        "padding_left": ["1rem", "1rem", "1rem", "2rem", "2rem"],
-        "padding_right": ["1rem", "1rem", "1rem", "2rem", "2rem"],
+        "padding_left": ["2rem", "2rem", "2rem", "2rem", "2rem"],
+        "padding_right": ["2rem", "2rem", "2rem", "2rem", "2rem"],
         "padding_bottom": "6rem",
         "transition": "all 550ms ease",
         "min_height": "100vh",
@@ -43,7 +43,6 @@ base_css: dict = {
         "width": ["0%", "0%", "0%", "20%", "20%"],
         "top": "0",
         "position": "sticky",
-        "z_index": "-2",
         "padding_top": "5rem",
         "align_items": ["end", "end", "end", "start", "start"],
         "padding_right": ["1rem", "1rem", "1rem", "", ""],
@@ -91,8 +90,8 @@ base_css: dict = {
         },
         "min_header": {
             "width": "100%",
-            "padding_left": ["1rem", "1rem", "1rem", "", ""],
-            "padding_right": ["1rem", "1rem", "1rem", "", ""],
+            "padding_left": ["1rem", "1rem", "0.5rem", "", ""],
+            "padding_right": ["1rem", "1rem", "0.5rem", "", ""],
             "transition": "all 550ms ease",
         },
     },
@@ -107,11 +106,11 @@ base_css: dict = {
             "overflow": "hidden",
         },
         "socials": {
-            "github": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/material-outlined/24/github.png' style={SOCIAL_COLOR};/>",  # noqa: E501
-            "twitter": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/twitter.png' style={SOCIAL_COLOR};/>",  # noqa: E501
-            "youtube": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/youtube.png' style={SOCIAL_COLOR};/>",  # noqa: E501
-            "mastodon": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/windows/24/mastodon.png' style={SOCIAL_COLOR};/>",  # noqa: E501
-            "discord": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/discord.png' style={SOCIAL_COLOR};/>",  # noqa: E501
+            "github": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/material-outlined/24/github.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
+            "twitter": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/twitter.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
+            "youtube": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/youtube.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
+            "mastodon": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/windows/24/mastodon.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
+            "discord": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/discord.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
         },
     },
 }

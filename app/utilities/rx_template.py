@@ -20,6 +20,10 @@ class RxPage:
     def __right__navigation__(self):
         return []
 
+    # Mobile navigation drop down
+    def __mobile_navigation__(self):
+        return NavHelper.__get_left_navigation__(self.__title__())
+
     # Main content area: takes in rx.Componenets and passes them to base file
     def __components__(self):
         return []
@@ -30,5 +34,6 @@ class RxPage:
             self.__components__(),
             self.__left_navigation__(),
             self.__right__navigation__(),
+            self.__mobile_navigation__(),
         )
         return page.build()

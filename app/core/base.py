@@ -1,6 +1,7 @@
 # import the CSSHelper class to easily get application stylesheet
 from app.helpers.css_helpers import CSSHelper
 
+
 # import the core componenets of the web application
 from app.core.header import RxHeader
 from app.core.left import RxLeft
@@ -8,6 +9,7 @@ from app.core.right import RxRight
 from app.core.middle import RxMiddle
 from app.core.footer import RxFooter
 from app.core.drawer import RxDrawer
+from app.core.mobile import RxMobileNav
 
 # import the Reflex library
 import reflex as rx
@@ -19,10 +21,12 @@ class RxBasePage:
         components: list,
         left_navigation: rx.Component,
         right_navigation: list,
+        mobile_navigation: list,
     ):
         self.components = components
         self.left_navigation = left_navigation
         self.right_navigation = right_navigation
+        self.mobile_navigation = mobile_navigation
 
         self.rx_main_stack = rx.vstack(style=CSSHelper.__base_css__())
 
@@ -37,6 +41,8 @@ class RxBasePage:
             if nav
             else rx.vstack()
         )
+
+        self.rx_mobile_nav = RxMobileNav(self.mobile_navigation) if nav else []
 
         self.rx_right = RxRight(
             self.right_navigation,
@@ -78,6 +84,7 @@ class RxBasePage:
     def set_mobile_tablet_layout(self):
         return rx.mobile_and_tablet(
             self.rx_header,
+            self.rx_mobile_nav,
             rx.hstack(
                 self.rx_middle,
                 width="100%",

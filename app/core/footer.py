@@ -78,8 +78,8 @@ footer_css: dict = {
     },
     "min_footer": {
         "width": "100%",
-        "padding_left": ["1rem", "1rem", "1rem", "", ""],
-        "padding_right": ["1rem", "1rem", "1rem", "", ""],
+        "padding_left": ["2rem", "2rem", "2rem", "", ""],
+        "padding_right": ["2rem", "2rem", "2rem", "", ""],
         "transition": "all 550ms ease",
     },
 }
