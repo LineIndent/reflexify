@@ -1,3 +1,7 @@
+# import the CSSHelper class to easily get application stylesheet
+from app.helpers.css_helpers import CSSHelper
+
+# import the core componenets of the web application
 from app.core.header import RxHeader
 from app.core.left import RxLeft
 from app.core.right import RxRight
@@ -5,13 +9,7 @@ from app.core.middle import RxMiddle
 from app.core.footer import RxFooter
 from app.core.drawer import RxDrawer
 
-from app.styles.middle_style import rx_middle_css
-from app.styles.left_style import rx_left_css
-from app.styles.right_style import rx_right_css
-from app.styles.base_style import rx_base_css
-from app.styles.footer_style import rx_footer_css, rx_footer_socials_css
-
-
+# import the Reflex library
 import reflex as rx
 
 
@@ -26,15 +24,35 @@ class RxBasePage:
         self.left_navigation = left_navigation
         self.right_navigation = right_navigation
 
-        self.rx_main_stack = rx.vstack(style=rx_base_css)
+        self.rx_main_stack = rx.vstack(style=CSSHelper.__base_css__())
 
         self.rx_header = RxHeader().build()
 
         nav = self.left_navigation
-        self.rx_left = RxLeft(nav, rx_left_css) if nav else rx.vstack()
-        self.rx_right = RxRight(self.right_navigation, rx_right_css)
-        self.rx_middle = RxMiddle(self.components, rx_middle_css)
-        self.rx_footer = RxFooter(rx_footer_css, rx_footer_socials_css).build()
+        self.rx_left = (
+            RxLeft(
+                nav,
+                CSSHelper.__left_css__(),
+            )
+            if nav
+            else rx.vstack()
+        )
+
+        self.rx_right = RxRight(
+            self.right_navigation,
+            CSSHelper.__right_css__(),
+        )
+
+        self.rx_middle = RxMiddle(
+            self.components,
+            CSSHelper.__middle_css__(),
+        )
+
+        self.rx_footer = RxFooter(
+            CSSHelper.__footer_style_css__(),
+            CSSHelper.__footer_socials_css__(),
+        ).build()
+
         self.rx_drawer = RxDrawer().build()
 
         self.rx_base_components = [

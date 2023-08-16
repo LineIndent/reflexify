@@ -40,4 +40,3 @@ def get_modified_navigation_list(
 
 class HeaderState(MainState):
     withNav: list[list[str]] = get_modified_navigation_list()
-    nav: list[list[str]] = []
