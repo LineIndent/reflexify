@@ -23,6 +23,11 @@ data = {
         "type": "string",
         "required": False,
     },
+    "drawer": {
+        "type": "bool",
+        "required": False,
+        "description": "Removes side drawer from app if True. Note: turn off drawer (set to True) if app is static.",
+    },
     "theme": {
         "primary": {
             "type": "string",
@@ -31,6 +36,10 @@ data = {
         "secondary": {
             "type": "string",
             "required": True,
+        },
+        "font": {
+            "type": "string",
+            "required": False,
         },
     },
     "socials": {
