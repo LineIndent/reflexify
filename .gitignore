@@ -6,3 +6,4 @@ pages
 reflex.db
 reflexify.log
 venv
+.DS_Store

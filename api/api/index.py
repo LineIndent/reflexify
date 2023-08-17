@@ -3,10 +3,6 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 data = {
-    "site_name_test": {
-        "type": "string",
-        "required": False,
-    },
     "site_name": {
         "type": "string",
         "required": False,
