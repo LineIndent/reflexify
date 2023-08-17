@@ -31,7 +31,7 @@ base_css: dict = {
         "width": ["100%", "100%", "100%", "60%", "60%"],
         "top": "0",
         "position": "block",
-        "padding_top": "5rem",
+        "padding_top": ["2rem", "2rem", "2rem", "5rem", "5rem"],
         "align_items": "start",
         "padding_left": ["2rem", "2rem", "2rem", "2rem", "2rem"],
         "padding_right": ["2rem", "2rem", "2rem", "2rem", "2rem"],
@@ -111,6 +111,32 @@ base_css: dict = {
             "youtube": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/youtube.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
             "mastodon": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/windows/24/mastodon.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
             "discord": f"<img width='{SOCIAL_SIZE}' height='{SOCIAL_SIZE}' src='https://img.icons8.com/ios-filled/24/discord.png' style='{SOCIAL_COLOR}';/>",  # noqa: E501
+        },
+    },
+    "drawer": {
+        "heading": {
+            "width": "100%",
+            "height": "100px",
+            "align_items": "end",
+            "bg": Config.__theme_primary__(),
+            "padding_left": "1rem",
+            "padding_bottom": "1rem",
+            "transition": "all 550ms ease",
+            "color": "white",
+        },
+        "repo": {
+            "width": "100%",
+            "height": "45px",
+            "bg": Config.__theme_primary__(),
+            "padding_left": "1rem",
+            "transition": "all 550ms ease",
+        },
+        "router": {
+            "align_items": "center",
+            "width": "100%",
+            "cursor": "pointer",
+            "opacity": "0.8",
+            "_hover": {"opacity": "1"},
         },
     },
 }

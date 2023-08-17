@@ -16,7 +16,6 @@ class RepositoryData:
         self.rx_repo_data = rx.hstack(
             spacing="1.15rem",
             cursor="pointer",
-            on_click=rx.redirect(Config.__repo_url__()),
         )
 
         self.git_repo_name = rx.hstack(
@@ -79,6 +78,10 @@ class RepositoryData:
         self.rx_repo_data.children.append(self.git_data)
 
         return rx.tooltip(
-            self.rx_repo_data,
+            rx.link(
+                self.rx_repo_data,
+                href=Config.__repo_url__(),
+                _hover={"text_decoration": "None"},
+            ),
             label="Go to repository",
         )

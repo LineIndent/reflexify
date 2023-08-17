@@ -10,6 +10,33 @@ class NavHelper:
         return data
 
     @staticmethod
+    def __get_navigation_titles__() -> list:
+        navigation = [
+            name.capitalize()
+            for name in list(
+                Config.__navigation__().keys(),
+            )
+        ]
+
+        return navigation
+
+    @staticmethod
+    def __get_navigation_paths__(
+        data: dict = Config.__navigation__(),
+        parent: str = "/",
+        paths: list = [],
+    ) -> list[tuple]:
+        for key, value in data.items():
+            if isinstance(value, str) and key == "home":
+                paths.append("/")
+            if isinstance(value, dict):
+                for path in list(value.values()):
+                    paths.append(f"{parent}{key}/{path.split('.py')[0]}")
+                    break
+
+        return paths
+
+    @staticmethod
     def __get_nav_link__(
         title: str,
         route_to: str,

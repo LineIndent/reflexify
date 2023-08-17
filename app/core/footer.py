@@ -49,10 +49,14 @@ class RxFooter:
             for name, url in socials.items():
                 if url:
                     stack.children.append(
-                        rx.html(
-                            self.socials.get(name),
-                            on_click=rx.redirect(url),
-                            cursor="pointer",
+                        rx.link(
+                            rx.html(
+                                self.socials.get(name),
+                                # on_click=rx.redirect(url),
+                                cursor="pointer",
+                            ),
+                            href=url,
+                            _hover={"text_decoration": "None"},
                         )
                     )
 

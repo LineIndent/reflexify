@@ -1,3 +1,4 @@
+from app.helpers.nav_helpers import NavHelper
 import reflex as rx
 
 
@@ -8,6 +9,10 @@ class RxMobileNav(rx.Accordion):
         super().__init__(allow_multiple=allow_multiple, width=width, padding=padding)
 
         self.components = components
+
+        self.bread_crumb = rx.breadcrumb(
+            padding="1.25rem 0.5rem",
+        )
 
         self.accordian_item = rx.accordion_item(
             rx.accordion_button(
@@ -21,8 +26,29 @@ class RxMobileNav(rx.Accordion):
         for title, route in self.components:
             self.accordian_item.children.append(
                 rx.accordion_panel(
-                    rx.link(rx.text(title), href=route),
+                    rx.link(
+                        rx.text(title),
+                        href=route,
+                        _hover={"text_decoration": "None"},
+                    ),
                 ),
             )
 
-        self.children.append(self.accordian_item)
+        main_navigation = [
+            [title, route]
+            for title, route in zip(
+                NavHelper.__get_navigation_titles__(),
+                NavHelper.__get_navigation_paths__(),
+            )
+        ]
+
+        for title, route in main_navigation:
+            self.bread_crumb.children.append(
+                rx.breadcrumb_item(rx.link(rx.text(title), href=route))
+            )
+
+        self.children = (
+            [self.bread_crumb, self.accordian_item]
+            if self.components
+            else [self.bread_crumb]
+        )

@@ -1,6 +1,6 @@
 # import the CSSHelper class to easily get application stylesheet
 from app.helpers.css_helpers import CSSHelper
-
+from app.helpers.app_config import Config
 
 # import the core componenets of the web application
 from app.core.header import RxHeader
@@ -22,11 +22,13 @@ class RxBasePage:
         left_navigation: rx.Component,
         right_navigation: list,
         mobile_navigation: list,
+        remove_drawer: bool = Config.__drawer__(),
     ):
         self.components = components
         self.left_navigation = left_navigation
         self.right_navigation = right_navigation
         self.mobile_navigation = mobile_navigation
+        self.remove_drawer = remove_drawer
 
         self.rx_main_stack = rx.vstack(style=CSSHelper.__base_css__())
 
@@ -61,11 +63,18 @@ class RxBasePage:
 
         self.rx_drawer = RxDrawer().build()
 
-        self.rx_base_components = [
-            self.rx_drawer,
-            self.set_desktop_layout(),
-            self.set_mobile_tablet_layout(),
-        ]
+        self.rx_base_components = (
+            [
+                self.set_desktop_layout(),
+                self.set_mobile_tablet_layout(),
+            ]
+            if self.remove_drawer
+            else [
+                self.rx_drawer,
+                self.set_desktop_layout(),
+                self.set_mobile_tablet_layout(),
+            ]
+        )
 
     def set_desktop_layout(self):
         return rx.desktop_only(

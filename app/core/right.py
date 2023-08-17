@@ -6,5 +6,10 @@ class RxRight(rx.Vstack):
         super().__init__(style=style)
         self.components = components
         self.children = [
-            rx.link(rx.text(title), href=route) for title, route in self.components
+            rx.link(
+                rx.text(title),
+                href=route,
+                _hover={"text_decoration": "None"},
+            )
+            for title, route in self.components
         ]

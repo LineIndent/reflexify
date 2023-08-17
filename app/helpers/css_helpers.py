@@ -69,3 +69,19 @@ class CSSHelper:
     @staticmethod
     def __footer_socials_css__() -> dict:
         return CSSHelper.__footer_css__().get("socials", {})
+
+    @staticmethod
+    def __drawer_css__() -> dict:
+        return base_css.get("drawer", {})
+
+    @staticmethod
+    def __drawer_heading_css__() -> dict:
+        return CSSHelper.__drawer_css__().get("heading", {})
+
+    @staticmethod
+    def __drawer_repo_css__() -> dict:
+        return CSSHelper.__drawer_css__().get("repo", {})
+
+    @staticmethod
+    def __drawer_router_css__() -> dict:
+        return CSSHelper.__drawer_css__().get("router", {})

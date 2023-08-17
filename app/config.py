@@ -4,6 +4,7 @@ app_configuration: dict = {
     "repo_url": "https://github.com/LineIndent/fletxible",
     "copy_right": "Copyright © 2022 - 2023 S. Ahmad P. Hakimi ",
     "attribute": "Made with Refelex & Reflexify",
+    "drawer": True,
     "theme": {
         "primary": "black",
         "secondary": "teal",

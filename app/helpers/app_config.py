@@ -30,6 +30,11 @@ class Config:
         return value if value else ""
 
     @staticmethod
+    def __drawer__() -> bool:
+        value = Config.data.get("drawer", False)
+        return value if value else False
+
+    @staticmethod
     def __theme_primary__() -> str:
         value = Config.data["theme"].get("primary", "orange")
         return value if value else "orange"
