@@ -7,3 +7,6 @@ pages
 reflex.db
 reflexify.log
 venv
+reflexify.egg-info
+dist
+build
