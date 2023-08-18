@@ -21,15 +21,13 @@ class RxHeader:
             style=CSSHelper.__header_main_css__(),
         )
 
-        self.site_name = rx.tooltip(
-            rx.link(
-                rx.heading(
-                    Config.__site_name__(), style=CSSHelper.__header_site_name_css__()
-                ),
-                href="/",
-                _hover={"text_decoration": "None"},
+        self.site_name = rx.link(
+            rx.heading(
+                rx.tooltip(Config.__site_name__(), label="Reflexify", cursor="pointer"),
+                style=CSSHelper.__header_site_name_css__(),
             ),
-            label="Reflexify",
+            href="/",
+            _hover={"text_decoration": "None"},
         )
         self.rx_header_desktop = rx.desktop_only(
             rx.hstack(

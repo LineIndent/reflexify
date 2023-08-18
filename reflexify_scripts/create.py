@@ -21,7 +21,7 @@ file_structure = {
     "material": ["__init__.py", "typography.py"],
     "states": ["__init__.py", "drawerState.py", "headerState.py", "mainState.py"],
     "styles": ["__init__.py", "_base.py"],
-    "utilities": ["__init__.py", "rx_page404.py", "rx_template.py"],
+    "utilities": ["__init__.py", "rx_page404.py", "rx_template.py", "rx_index.py"],
     "app.py": None,
     "config.py": None,
     "router.py": None,

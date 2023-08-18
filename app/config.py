@@ -18,6 +18,6 @@ app_configuration: dict = {
         "discord": "",
     },
     "navigation": {
-        "": {},
+        "home": {"getting started": "start.py"},
     },
 }

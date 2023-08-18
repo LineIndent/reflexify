@@ -16,7 +16,7 @@ class RxPage:
         nav: list = NavHelper.__get_left_navigation__(self.__title__())
         return NavHelper.__set_left_navigation__(nav)
 
-    # Right navigation panel: TBD
+    # Right navigation panel: manually add your page-specific TOC (table fo content) to navigate wwithin page
     def __right__navigation__(self):
         return []
 
