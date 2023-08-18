@@ -131,7 +131,7 @@ def set_template_and_error_file():
         with open(error_path, "w") as file:
             file.write(error)
 
-    with open("./app/utilities/rx_template.py", "r") as file:
+    with open("./app/utilities/rx_index.py", "r") as file:
         rx_page = file.read()
 
     index_path = os.path.join("./app/pages/" + "index.py")

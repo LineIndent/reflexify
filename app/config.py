@@ -17,5 +17,7 @@ app_configuration: dict = {
         "mastodon": "",
         "discord": "",
     },
-    "navigation": {},
+    "navigation": {
+        "": {},
+    },
 }

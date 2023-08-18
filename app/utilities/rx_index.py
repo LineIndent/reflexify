@@ -1,5 +1,6 @@
 from app.core.base import RxBasePage
 from app.helpers.nav_helpers import NavHelper
+import reflex as rx
 
 
 class RxPage:
@@ -26,7 +27,15 @@ class RxPage:
 
     # Main content area: takes in rx.Componenets and passes them to base file
     def __components__(self):
-        return []
+        return [
+            # add your components below #
+            rx.heading("Welcome to Reflexify!", size="lg", padding_bottom="2rem"),
+            rx.heading(
+                "This is your index/landing page. Visit the documentation to get started!",
+                size="sm",
+            )
+            # end your components above #
+        ]
 
     # Build method: creates a new instance for the page above
     def build(self):

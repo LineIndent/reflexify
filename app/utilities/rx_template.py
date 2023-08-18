@@ -26,7 +26,10 @@ class RxPage:
 
     # Main content area: takes in rx.Componenets and passes them to base file
     def __components__(self):
-        return []
+        return [
+            # add your components below #
+            # end your components above #
+        ]
 
     # Build method: creates a new instance for the page above
     def build(self):

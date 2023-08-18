@@ -11,12 +11,16 @@ class NavHelper:
 
     @staticmethod
     def __get_navigation_titles__() -> list:
-        navigation = [
-            name.capitalize()
-            for name in list(
-                Config.__navigation__().keys(),
-            )
-        ]
+        navigation = (
+            [
+                name.capitalize()
+                for name in list(
+                    Config.__navigation__().keys(),
+                )
+            ]
+            if Config.__navigation__()
+            else []
+        )
 
         return navigation
 
