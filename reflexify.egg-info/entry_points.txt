@@ -1,0 +1,2 @@
+[console_scripts]
+rf-init = reflexify_scripts.create:create

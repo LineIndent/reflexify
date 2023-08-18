@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: reflexify
+Version: 0.0.5
+Summary: Document, build, and showcase - all in one place, all in Python.
+Home-page: https://github.com/LineIndent/reflexify
+Author: S. Ahmad P. Hakimi
+Author-email: pourhakimi@pm.me
+Keywords: python web template,web application,documentation
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Reflexify is a Python web boilerplate library designed to provide a solid foundation to rapidly build high quality web applications with Python and Reflex. The project comes pre-configured with a range of tools and features to make it easy for developers to get started building their applications, without the need to spend time setting up infrastructure or configuring tools.

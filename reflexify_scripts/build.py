@@ -173,6 +173,7 @@ if __name__ == "__main__":
 
     logging.getLogger().addHandler(console_handler)
     try:
+        logging.info("Program started. Monitoring config.py file...")
         while True:
             build()
             time.sleep(1)

@@ -1,4 +1,5 @@
 *.py[cod]
+.DS_Store
 .web
 __pycache__/
 app/pages/
@@ -6,4 +7,3 @@ pages
 reflex.db
 reflexify.log
 venv
-.DS_Store
