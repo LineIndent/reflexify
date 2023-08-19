@@ -31,7 +31,7 @@ Reflexify is a Python web boilerplate library designed to provide a solid founda
 
 ## Installation
 
-To use Fletxible, you need to have the following installed:
+To use Reflexify, you need to have the following installed:
 
 -   Latest version of Reflex
 -   Python 3.7+
@@ -97,4 +97,3 @@ Reflexify is open-source and licensed under the [MIT License](LICENSE).
 
 
 
-https://reflexify-api.vercel.app/
