@@ -14,8 +14,8 @@
     <img src="https://img.shields.io/pypi/pyversions/fletxible.svg" alt="Python version">
   </a> -->
   
-  <a href="https://pypi.org/project/Fletxible/">
-    <img src="https://img.shields.io/pypi/v/Fletxible.svg" alt="PyPI version", style="background-color: blue;">
+  <a href="https://pypi.org/project/reflexify/">
+    <img src="https://img.shields.io/pypi/v/reflexify.svg" alt="PyPI version", style="background-color: blue;">
   </a>
 
   <a href="https://pypi.org/project/reflexify/">
