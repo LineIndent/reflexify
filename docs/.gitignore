@@ -1,5 +1,0 @@
-*.py[cod]
-.web
-__pycache__/
-reflex.db
-pages/__pycache__/*
