@@ -17,6 +17,7 @@ class RxHeader:
             ),
             label="Switch theme mode",
         )
+
         self.rx_header = rx.hstack(
             style=CSSHelper.__header_main_css__(),
         )

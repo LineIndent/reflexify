@@ -1,12 +1,13 @@
+*.db
 *.py[cod]
 .DS_Store
 .web
 __pycache__/
 app/pages/
+build
+dist
 pages
 reflex.db
+reflexify.egg-info
 reflexify.log
 venv
-reflexify.egg-info
-dist
-build

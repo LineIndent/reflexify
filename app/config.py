@@ -3,7 +3,7 @@ app_configuration: dict = {
     "repo_name": "LineIndent/reflexify",
     "repo_url": "https://github.com/LineIndent/reflexify",
     "copy_right": "Copyright © 2022 - 2023 S. Ahmad P. Hakimi ",
-    "attribute": "Made with Refelex & Reflexify",
+    "attribute": "Made with Reflex & Reflexify",
     "drawer": True,
     "theme": {
         "primary": "black",
