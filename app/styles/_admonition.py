@@ -1,4 +1,4 @@
-# tags: info, not_allowed, warning, warning_two, calendar
+# tags: info, not_allowed, warning, warning_two, calendar, question, check?,
 
 admonition_css: dict = {
     "info": {
@@ -78,5 +78,83 @@ admonition_css: dict = {
             },
         },
         "icon": {"color": "#ec5f59"},
+    },
+    "calendar": {
+        "body": {
+            "transition": "all 550ms ease",
+            "_light": {
+                "border": "0.055rem solid #5688f7",
+                "_hover": {
+                    "box_shadow": "0px 0.75px 4px 4px rgba(237, 243, 254, 0.85)",
+                },
+            },
+            "_dark": {
+                "border": "0.055rem solid #5688f7",
+                "_hover": {
+                    "box_shadow": "0px 0.75px 4px 4px rgba(49, 56, 80, 0.65)",
+                },
+            },
+        },
+        "header": {
+            "_light": {
+                "background": "rgba(237, 243, 254, 1)",
+            },
+            "_dark": {
+                "background": "rgba(49, 56, 80, 0.65)",
+            },
+        },
+        "icon": {"color": "#5688f7"},
+    },
+    "question": {
+        "body": {
+            "transition": "all 550ms ease",
+            "_light": {
+                "border": "0.055rem solid #84db46",
+                "_hover": {
+                    "box_shadow": "0px 0.75px 4px 4px rgba(241, 252, 233, 0.85)",
+                },
+            },
+            "_dark": {
+                "border": "0.055rem solid #84db46",
+                "_hover": {
+                    "box_shadow": "0px 0.75px 4px 4px rgba(55, 66, 59, 0.65)",
+                },
+            },
+        },
+        "header": {
+            "_light": {
+                "background": "rgba(241, 252, 233, 1)",
+            },
+            "_dark": {
+                "background": "rgba(55, 66, 59, 0.65)",
+            },
+        },
+        "icon": {"color": "#84db46"},
+    },
+    "check": {
+        "body": {
+            "transition": "all 550ms ease",
+            "_light": {
+                "border": "0.055rem solid #5ac561",
+                "_hover": {
+                    "box_shadow": "0px 0.75px 4px 4px rgba(233, 248, 238, 0.85)",
+                },
+            },
+            "_dark": {
+                "border": "0.055rem solid #5ac561",
+                "_hover": {
+                    "box_shadow": "0px 0.75px 4px 4px rgba(46, 62, 64, 0.65)",
+                },
+            },
+        },
+        "header": {
+            "_light": {
+                "background": "rgba(233, 248, 238, 1)",
+            },
+            "_dark": {
+                "background": "rgba(46, 62, 64, 0.65)",
+            },
+        },
+        "icon": {"color": "#5ac561"},
     },
 }
