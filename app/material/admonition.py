@@ -1,7 +1,6 @@
 import reflex as rx
 from app.styles._admonition import admonition_css
 
-# tags: info, not_allowed, warning, warning_two, calendar
 
 css: dict = admonition_css
 
