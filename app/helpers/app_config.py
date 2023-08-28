@@ -50,11 +50,11 @@ class Config:
         return value if value else "Times New Roman"
 
     @staticmethod
-    def __all_social__():
+    def __all_social__() -> dict:
         value = Config.data.get("socials", {})
         return value if value else None
 
     @staticmethod
-    def __navigation__():
+    def __navigation__() -> dict:
         value = Config.data.get("navigation", {})
         return value if value else None
