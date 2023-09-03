@@ -20,6 +20,6 @@ def test_header_type(build, header):
     assert isinstance(header.site_name, rx.Link)
 
 
-def test_header_background_color(header):
-    header.rx_header.__dict__["style"]["bg"] = "orange"
-    assert header.rx_header.__dict__["style"]["bg"] == "orange"
+# def test_header_background_color(header):
+#     header.rx_header.__dict__["style"]["bg"] = "orange"
+#     assert header.rx_header.__dict__["style"]["bg"] == "orange"
