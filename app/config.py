@@ -2,7 +2,7 @@ app_configuration: dict = {
     "site_name": "Reflexify",
     "repo_name": "LineIndent/reflexify",
     "repo_url": "https://github.com/LineIndent/reflexify",
-    "copy_right": "Copyright © 2022 - 2023 S. Ahmad P. Hakimi ",
+    "copy_right": "Copyright © 2022 - 2023 S. Ahmad P. Hakimi",
     "attribute": "Made with Reflex & Reflexify",
     "drawer": True,
     "theme": {

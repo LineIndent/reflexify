@@ -49,6 +49,8 @@ class RepositoryData:
             "Counter",
         ]
 
+        id_elements = ["name", "stars", "forks"]
+
         with httpx.Client() as client:
             response = client.get(Config.__repo_url__())
             data = response.content
@@ -60,11 +62,10 @@ class RepositoryData:
 
             if span_element is not None:
                 txt = span_element.text.strip()
-
                 temp_repo_data.children.append(
                     rx.hstack(
                         rx.html(icon_list[i]),
-                        rx.text(txt, color="white", font_size=11),
+                        rx.text(txt, color="white", font_size=11, id=id_elements[i]),
                         spacing="0.35rem",
                     )
                 )

@@ -8,9 +8,7 @@ SOCIAL_COLOR = r"filter: brightness(0) invert(1)"
 
 # main base css stylesheet for preconfigured web application
 base_css: dict = {
-    "app": {
-        "font_family": Config.__theme_font__(),
-    },
+    "app": {"font_family": Config.__theme_font__(), "_dark": {"bg": "#1f2028"}},
     "base": {
         "width": "100%",
         "min_height": "100vh",
@@ -54,9 +52,9 @@ base_css: dict = {
             "height": "50px",
             "position": "sticky",
             "bg": Config.__theme_primary__(),
-            "box_shadow": "0 3px 6px 0 rgba(0, 0, 0, 0.5)",
             "transition": "height 350ms ease",
             "top": "0",
+            "box_shadow": "0 3px 6px 0 rgba(0, 0, 0, 0.5)",
             "z_index": "2",
         },
         "icon": {

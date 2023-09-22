@@ -36,8 +36,8 @@ class Config:
 
     @staticmethod
     def __theme_primary__() -> str:
-        value = Config.data["theme"].get("primary", "orange")
-        return value if value else "orange"
+        value = Config.data["theme"].get("primary", "black")
+        return value if value else "black"
 
     @staticmethod
     def __theme_secondary__() -> str:

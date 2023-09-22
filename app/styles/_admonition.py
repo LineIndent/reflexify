@@ -1,5 +1,3 @@
-# tags: info, not_allowed, warning, warning_two, calendar, question, check?,
-
 admonition_css: dict = {
     "info": {
         "body": {

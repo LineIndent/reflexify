@@ -37,4 +37,4 @@ def add_routes_to_app_pages(app: rx.App, routes: dict):
 
 
 def set_application_routes(app: rx.App):
-    get_application_routes_from_pages_dir(app)
+    get_application_routes_from_pages_dir(app=app)
