@@ -30,6 +30,7 @@ Reflexify is a Python web boilerplate library designed to provide a solid founda
 
 <!-- <img src="./assets/reflexify.png"> -->
 <img src="./assets/reflexify.png" alt="Reflexify Logo" style="box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.65) !important;">
+
 ## Installation
 
 To use Reflexify, you need to have the following installed:
