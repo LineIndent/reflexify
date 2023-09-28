@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="reflexify",
-    version="0.0.7",
+    version="0.0.9",
     author="S. Ahmad P. Hakimi",
     author_email="pourhakimi@pm.me",
     description="Document, build, and showcase - all in one place, all in Python.",
